@@ -1,5 +1,5 @@
 {
- "policies": "tests/example_use_cases_doc/policies_1a.cedar",
+ "policies": "tests/example_use_cases/policies_3a.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
  "should_validate": true,
@@ -30,7 +30,7 @@
    "errors": []
   },
   {
-   "desc": "bob should not be allowed to view the photo (wrong Principal)",
+   "desc": "bob should be able to view the photo",
    "principal": {
     "type": "User",
     "id": "bob"
@@ -48,19 +48,21 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "Allow",
+   "reasons": [
+    "policy0"
+   ],
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to delete the photo (wrong Action)",
+   "desc": "ahmad should be able to view the photo",
    "principal": {
-    "type": "User",
-    "id": "alice"
+    "type": "Administrator",
+    "id": "ahmad"
    },
    "action": {
     "type": "Action",
-    "id": "delete"
+    "id": "view"
    },
    "resource": {
     "type": "Photo",
@@ -71,12 +73,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "Allow",
+   "reasons": [
+    "policy0"
+   ],
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to view an unrelated photo (wrong Resource)",
+   "desc": "alice should not be allowed to view an unrelated photo",
    "principal": {
     "type": "User",
     "id": "alice"

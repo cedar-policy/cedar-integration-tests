@@ -1,11 +1,11 @@
 {
- "policies": "tests/example_use_cases_doc/policies_2a.cedar",
+ "policies": "tests/example_use_cases/policies_3c.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
  "should_validate": true,
  "queries": [
   {
-   "desc": "alice should be able to view the photo",
+   "desc": "alice should be able to view a photo in the album",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -30,14 +30,14 @@
    "errors": []
   },
   {
-   "desc": "bob should not be allowed to view the photo",
+   "desc": "alice should be able to edit a photo in the album",
    "principal": {
     "type": "User",
-    "id": "bob"
+    "id": "alice"
    },
    "action": {
     "type": "Action",
-    "id": "view"
+    "id": "edit"
    },
    "resource": {
     "type": "Photo",
@@ -48,12 +48,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "Allow",
+   "reasons": [
+    "policy0"
+   ],
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to view an unrelated photo",
+   "desc": "alice should be able to view a video in the album",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -63,16 +65,18 @@
     "id": "view"
    },
    "resource": {
-    "type": "Photo",
-    "id": "passportscan.jpg"
+    "type": "Video",
+    "id": "surf.mp4"
    },
    "context": {
     "source_ip": "123.123.123.123",
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "Allow",
+   "reasons": [
+    "policy0"
+   ],
    "errors": []
   }
  ]

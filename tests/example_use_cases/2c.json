@@ -1,18 +1,18 @@
 {
- "policies": "tests/example_use_cases_doc/policies_3b.cedar",
+ "policies": "tests/example_use_cases/policies_2c.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
  "should_validate": true,
  "queries": [
   {
-   "desc": "alice should be able to view a photo in jane's account",
+   "desc": "alice should be allowed to edit the photo",
    "principal": {
     "type": "User",
     "id": "alice"
    },
    "action": {
     "type": "Action",
-    "id": "view"
+    "id": "edit"
    },
    "resource": {
     "type": "Photo",
@@ -30,57 +30,53 @@
    "errors": []
   },
   {
-   "desc": "alice should be able to list photos in an album in jane's account",
+   "desc": "alice should not be allowed to delete the photo",
    "principal": {
     "type": "User",
     "id": "alice"
    },
    "action": {
     "type": "Action",
-    "id": "listPhotos"
+    "id": "delete"
    },
    "resource": {
-    "type": "Album",
-    "id": "jane_vacation"
+    "type": "Photo",
+    "id": "VacationPhoto94.jpg"
    },
    "context": {
     "source_ip": "123.123.123.123",
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
-    "policy0"
-   ],
+   "decision": "Deny",
+   "reasons": [],
    "errors": []
   },
   {
-   "desc": "alice should be able to list albums in jane's account",
+   "desc": "bob should not be allowed to edit the photo",
    "principal": {
     "type": "User",
-    "id": "alice"
+    "id": "bob"
    },
    "action": {
     "type": "Action",
-    "id": "listAlbums"
+    "id": "edit"
    },
    "resource": {
-    "type": "Account",
-    "id": "jane"
+    "type": "Photo",
+    "id": "VacationPhoto94.jpg"
    },
    "context": {
     "source_ip": "123.123.123.123",
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
-    "policy0"
-   ],
+   "decision": "Deny",
+   "reasons": [],
    "errors": []
   },
   {
-   "desc": "alice should not be able to view a photo in bob's account",
+   "desc": "alice should not be allowed to view an unrelated photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -91,7 +87,7 @@
    },
    "resource": {
     "type": "Photo",
-    "id": "selfie.jpg"
+    "id": "passportscan.jpg"
    },
    "context": {
     "source_ip": "123.123.123.123",

@@ -1,5 +1,5 @@
 {
- "policies": "tests/example_use_cases_doc/policies_3a.cedar",
+ "policies": "tests/example_use_cases/policies_2a.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
  "should_validate": true,
@@ -30,7 +30,7 @@
    "errors": []
   },
   {
-   "desc": "bob should be able to view the photo",
+   "desc": "bob should not be allowed to view the photo",
    "principal": {
     "type": "User",
     "id": "bob"
@@ -48,35 +48,8 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
-    "policy0"
-   ],
-   "errors": []
-  },
-  {
-   "desc": "ahmad should be able to view the photo",
-   "principal": {
-    "type": "Administrator",
-    "id": "ahmad"
-   },
-   "action": {
-    "type": "Action",
-    "id": "view"
-   },
-   "resource": {
-    "type": "Photo",
-    "id": "VacationPhoto94.jpg"
-   },
-   "context": {
-    "source_ip": "123.123.123.123",
-    "confidence_score": "0.6",
-    "authenticated": true
-   },
-   "decision": "Allow",
-   "reasons": [
-    "policy0"
-   ],
+   "decision": "Deny",
+   "reasons": [],
    "errors": []
   },
   {
