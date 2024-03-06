@@ -39,8 +39,6 @@ We recommend using these tests in your CI to gate commits. For example, we use t
 
 The corpus tests are generated over a 6 hour run of the [`abac` target](https://github.com/cedar-policy/cedar-spec/blob/main/cedar-drt/fuzz/fuzz_targets/abac.rs). This target uses coverage-guided fuzzing, which will choose to save an input to the "corpus" if it generates new coverage compared to previous inputs. Before uploading the corpus, we run [`cmin`](https://manpages.ubuntu.com/manpages/bionic/man1/afl-cmin.1.html) to reduce the corpus size.
 
-The auto-generated corpus tests are updated nightly, depending on whether there have been new commits to the Cedar implementation or the fuzzing infrastructure.
-
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
