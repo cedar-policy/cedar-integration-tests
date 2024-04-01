@@ -1,0 +1,17 @@
+name: Run Integration Tests
+
+on:
+  pull_request:
+
+jobs:
+  test-cedar-policy:
+    name: Test Rust implementation
+    uses: cedar-policy/cedar/.github/workflows/run_integration_tests_reusable.yml@main
+    with:
+      cedar_integration_tests_ref: ${{ github.ref }}
+
+  test-cedar-spec:
+    name: Test Lean implementation
+    uses: cedar-policy/cedar-spec/.github/workflows/run_integration_tests_reusable.yml@main
+    with:
+      cedar_integration_tests_ref: ${{ github.ref }}
