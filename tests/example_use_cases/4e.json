@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_4e.cedar",
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema.cedarschema",
- "should_validate": true,
- "queries": [
+ "shouldValidate": true,
+ "requests": [
   {
-   "desc": "alice should be able to view her own photo",
+   "description": "alice should be able to view her own photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -21,14 +21,14 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "alice should be able to view ahmad's photo",
+   "description": "alice should be able to view ahmad's photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -44,14 +44,14 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "ahmad should be able to view alice's photo",
+   "description": "ahmad should be able to view alice's photo",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -67,14 +67,14 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "stacey should not be able to view alice's photo",
+   "description": "stacey should not be able to view alice's photo",
    "principal": {
     "type": "User",
     "id": "stacey"
@@ -90,8 +90,8 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   }
  ]

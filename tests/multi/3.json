@@ -2,10 +2,10 @@
  "policies": "tests/multi/policies_3.cedar",
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema_exts.cedarschema",
- "should_validate": true,
- "queries": [
+ "shouldValidate": true,
+ "requests": [
   {
-   "desc": "alice should be able to view the vacation photo",
+   "description": "alice should be able to view the vacation photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -23,14 +23,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "alice should be able to view the W2 photo",
+   "description": "alice should be able to view the W2 photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -48,14 +48,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "stacey should be allowed to view the vacation photo",
+   "description": "stacey should be allowed to view the vacation photo",
    "principal": {
     "type": "User",
     "id": "stacey"
@@ -73,14 +73,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "stacey should not be allowed to view the W2 photo",
+   "description": "stacey should not be allowed to view the W2 photo",
    "principal": {
     "type": "User",
     "id": "stacey"
@@ -98,8 +98,8 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [
+   "decision": "deny",
+   "reason": [
     "policy1"
    ],
    "errors": []

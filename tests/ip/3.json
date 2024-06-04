@@ -2,10 +2,10 @@
  "policies": "tests/ip/policies_3.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
- "should_validate": true,
- "queries": [
+ "shouldValidate": true,
+ "requests": [
   {
-   "desc": "alice should be able to view the photo when coming from 222.222.222.222",
+   "description": "alice should be able to view the photo when coming from 222.222.222.222",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -28,14 +28,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to view the photo when coming from 222.222.111.0",
+   "description": "alice should not be allowed to view the photo when coming from 222.222.111.0",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -58,8 +58,8 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   }
  ]

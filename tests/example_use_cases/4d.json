@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_4d.cedar",
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema.cedarschema",
- "should_validate": true,
- "queries": [
+ "shouldValidate": true,
+ "requests": [
   {
-   "desc": "alice should be able to view a photo in her account",
+   "description": "alice should be able to view a photo in her account",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -21,14 +21,14 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "alice should be able to edit a photo in her account",
+   "description": "alice should be able to edit a photo in her account",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -44,14 +44,14 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to view a photo in someone else's account",
+   "description": "alice should not be allowed to view a photo in someone else's account",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -67,8 +67,8 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   }
  ]

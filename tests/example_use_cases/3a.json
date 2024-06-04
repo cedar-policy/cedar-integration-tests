@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_3a.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
- "should_validate": true,
- "queries": [
+ "shouldValidate": true,
+ "requests": [
   {
-   "desc": "alice should be able to view the photo",
+   "description": "alice should be able to view the photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -23,14 +23,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "bob should be able to view the photo",
+   "description": "bob should be able to view the photo",
    "principal": {
     "type": "User",
     "id": "bob"
@@ -48,14 +48,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "ahmad should be able to view the photo",
+   "description": "ahmad should be able to view the photo",
    "principal": {
     "type": "Administrator",
     "id": "ahmad"
@@ -73,14 +73,14 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to view an unrelated photo",
+   "description": "alice should not be allowed to view an unrelated photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -98,8 +98,8 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   }
  ]

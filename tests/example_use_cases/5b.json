@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_5b.cedar",
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema.cedarschema",
- "should_validate": true,
- "queries": [
+ "shouldValidate": true,
+ "requests": [
   {
-   "desc": "ahmad should be able upload a 1MB PNG",
+   "description": "ahmad should be able upload a 1MB PNG",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -25,14 +25,14 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "ahmad should not be able to upload a 2MB PNG",
+   "description": "ahmad should not be able to upload a 2MB PNG",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -52,12 +52,12 @@
      "filesize_mb": 2
     }
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   },
   {
-   "desc": "ahmad should not be able to upload a 1MB GIF",
+   "description": "ahmad should not be able to upload a 1MB GIF",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -77,12 +77,12 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   },
   {
-   "desc": "ahmad should not be able to upload an 80MB RAW",
+   "description": "ahmad should not be able to upload an 80MB RAW",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -102,12 +102,12 @@
      "filesize_mb": 80
     }
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   },
   {
-   "desc": "giuseppe should be able upload a 1MB PNG",
+   "description": "giuseppe should be able upload a 1MB PNG",
    "principal": {
     "type": "User",
     "id": "giuseppe"
@@ -127,14 +127,14 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
   },
   {
-   "desc": "giuseppe should not be able to upload a 2MB PNG",
+   "description": "giuseppe should not be able to upload a 2MB PNG",
    "principal": {
     "type": "User",
     "id": "giuseppe"
@@ -154,12 +154,12 @@
      "filesize_mb": 2
     }
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   },
   {
-   "desc": "giuseppe should not be able to upload a 1MB GIF",
+   "description": "giuseppe should not be able to upload a 1MB GIF",
    "principal": {
     "type": "User",
     "id": "giuseppe"
@@ -179,12 +179,12 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Deny",
-   "reasons": [],
+   "decision": "deny",
+   "reason": [],
    "errors": []
   },
   {
-   "desc": "giuseppe should be able to upload an 80MB RAW",
+   "description": "giuseppe should be able to upload an 80MB RAW",
    "principal": {
     "type": "User",
     "id": "giuseppe"
@@ -204,8 +204,8 @@
      "filesize_mb": 80
     }
    },
-   "decision": "Allow",
-   "reasons": [
+   "decision": "allow",
+   "reason": [
     "policy0"
    ],
    "errors": []
