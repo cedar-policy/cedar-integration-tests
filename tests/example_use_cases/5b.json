@@ -25,7 +25,7 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Allow",
+   "decision": "allow",
    "reasons": [
     "policy0"
    ],
@@ -52,7 +52,7 @@
      "filesize_mb": 2
     }
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [],
    "errors": []
   },
@@ -77,7 +77,7 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [],
    "errors": []
   },
@@ -102,7 +102,7 @@
      "filesize_mb": 80
     }
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [],
    "errors": []
   },
@@ -127,7 +127,7 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Allow",
+   "decision": "allow",
    "reasons": [
     "policy0"
    ],
@@ -154,7 +154,7 @@
      "filesize_mb": 2
     }
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [],
    "errors": []
   },
@@ -179,7 +179,7 @@
      "filesize_mb": 1
     }
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [],
    "errors": []
   },
@@ -204,7 +204,7 @@
      "filesize_mb": 80
     }
    },
-   "decision": "Allow",
+   "decision": "allow",
    "reasons": [
     "policy0"
    ],

@@ -28,7 +28,7 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Allow",
+   "decision": "allow",
    "reasons": [
     "policy0"
    ],
@@ -58,7 +58,7 @@
     "confidence_score": "0.6",
     "authenticated": true
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [],
    "errors": []
   }

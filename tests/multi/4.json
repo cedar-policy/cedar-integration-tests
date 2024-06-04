@@ -21,7 +21,7 @@
    "context": {
     "authenticated": true
    },
-   "decision": "Allow",
+   "decision": "allow",
    "reasons": [
     "policy0",
     "policy1"
@@ -45,7 +45,7 @@
    "context": {
     "authenticated": false
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [
     "policy2",
     "policy3"
@@ -69,7 +69,7 @@
    "context": {
     "authenticated": false
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [
     "policy3"
    ],

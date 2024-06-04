@@ -28,7 +28,7 @@
     "source_ip": "123.123.123.123",
     "authenticated": false
    },
-   "decision": "Allow",
+   "decision": "allow",
    "reasons": [
     "policy0"
    ],
@@ -58,7 +58,7 @@
     "source_ip": "123.123.123.123",
     "authenticated": true
    },
-   "decision": "Deny",
+   "decision": "deny",
    "reasons": [],
    "errors": []
   }
