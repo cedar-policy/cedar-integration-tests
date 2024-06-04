@@ -3,7 +3,7 @@
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema.cedarschema",
  "shouldValidate": true,
- "queries": [
+ "requests": [
   {
    "description": "ahmad should be able upload a 1MB PNG",
    "principal": {

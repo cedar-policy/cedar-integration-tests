@@ -3,7 +3,7 @@
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema_exts.cedarschema",
  "shouldValidate": true,
- "queries": [
+ "requests": [
   {
    "description": "alice should be able to view the vacation photo",
    "principal": {

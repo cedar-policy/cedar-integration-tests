@@ -3,7 +3,7 @@
   "policies": "tests/multi/policies_5.cedar",
   "shouldValidate": true,
   "entities": "sample-data/sandbox_b/entities.json",
-  "queries": [
+  "requests": [
     {
       "description": "stacey should be able to view photos in alice_vacation",
       "principal": {
