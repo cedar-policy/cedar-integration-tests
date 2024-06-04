@@ -1,3 +1,6 @@
 [submodule "cedar-spec"]
 	path = cedar-spec
 	url = https://github.com/cedar-policy/cedar-spec
+[submodule "cedar"]
+	path = cedar
+	url = https://github.com/cedar-policy/cedar
