@@ -26,7 +26,7 @@
     }
    },
    "decision": "allow",
-   "reasons": [
+   "reason": [
     "policy0"
    ],
    "errors": []
@@ -53,7 +53,7 @@
     }
    },
    "decision": "deny",
-   "reasons": [],
+   "reason": [],
    "errors": []
   },
   {
@@ -78,7 +78,7 @@
     }
    },
    "decision": "deny",
-   "reasons": [],
+   "reason": [],
    "errors": []
   },
   {
@@ -103,7 +103,7 @@
     }
    },
    "decision": "deny",
-   "reasons": [],
+   "reason": [],
    "errors": []
   },
   {
@@ -128,7 +128,7 @@
     }
    },
    "decision": "allow",
-   "reasons": [
+   "reason": [
     "policy0"
    ],
    "errors": []
@@ -155,7 +155,7 @@
     }
    },
    "decision": "deny",
-   "reasons": [],
+   "reason": [],
    "errors": []
   },
   {
@@ -180,7 +180,7 @@
     }
    },
    "decision": "deny",
-   "reasons": [],
+   "reason": [],
    "errors": []
   },
   {
@@ -205,7 +205,7 @@
     }
    },
    "decision": "allow",
-   "reasons": [
+   "reason": [
     "policy0"
    ],
    "errors": []

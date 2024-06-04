@@ -22,7 +22,7 @@
     "authenticated": true
    },
    "decision": "allow",
-   "reasons": [
+   "reason": [
     "policy0",
     "policy1"
    ],
@@ -46,7 +46,7 @@
     "authenticated": false
    },
    "decision": "deny",
-   "reasons": [
+   "reason": [
     "policy2",
     "policy3"
    ],
@@ -70,7 +70,7 @@
     "authenticated": false
    },
    "decision": "deny",
-   "reasons": [
+   "reason": [
     "policy3"
    ],
    "errors": []

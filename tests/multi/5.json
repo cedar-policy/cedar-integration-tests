@@ -22,7 +22,7 @@
         "authenticated": true
       },
       "decision": "allow",
-      "reasons": [
+      "reason": [
         "policy0"
       ],
       "errors": []
@@ -43,7 +43,7 @@
       },
       "validateRequest": false,
       "decision": "deny",
-      "reasons": [],
+      "reason": [],
       "errors": [
         "policy0",
         "policy2"
@@ -67,7 +67,7 @@
         "authenticated": true
       },
       "decision": "deny",
-      "reasons": [],
+      "reason": [],
       "errors": []
     },
     {
@@ -86,7 +86,7 @@
       },
       "validateRequest": false,
       "decision": "deny",
-      "reasons": [
+      "reason": [
         "policy1"
       ],
       "errors": [
@@ -111,7 +111,7 @@
         "authenticated": true
       },
       "decision": "allow",
-      "reasons": [
+      "reason": [
         "policy2"
       ],
       "errors": []
@@ -132,7 +132,7 @@
       },
       "validateRequest": false,
       "decision": "allow",
-      "reasons": [
+      "reason": [
         "policy2"
       ],
       "errors": []
