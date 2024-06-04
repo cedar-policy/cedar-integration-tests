@@ -1,11 +1,11 @@
 {
   "schema": "sample-data/sandbox_b/schema.cedarschema",
   "policies": "tests/multi/policies_5.cedar",
-  "should_validate": true,
+  "shouldValidate": true,
   "entities": "sample-data/sandbox_b/entities.json",
   "queries": [
     {
-      "desc": "stacey should be able to view photos in alice_vacation",
+      "description": "stacey should be able to view photos in alice_vacation",
       "principal": {
         "type": "User",
         "id": "stacey"
@@ -28,7 +28,7 @@
       "errors": []
     },
     {
-      "desc": "an unspecified user should not be able to view photos in alice_vacation",
+      "description": "an unspecified user should not be able to view photos in alice_vacation",
       "principal": null,
       "resource": {
         "type": "Photo",
@@ -41,7 +41,7 @@
       "context": {
         "authenticated": true
       },
-      "enable_request_validation": false,
+      "validateRequest": false,
       "decision": "Deny",
       "reasons": [],
       "errors": [
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "desc": "a request with unspecified entities should be implicitly denied",
+      "description": "a request with unspecified entities should be implicitly denied",
       "principal": {
         "type": "User",
         "id": "alice"
@@ -71,7 +71,7 @@
       "errors": []
     },
     {
-      "desc": "a request with unspecified entities and an unauthenticated context should be denied with a reason",
+      "description": "a request with unspecified entities and an unauthenticated context should be denied with a reason",
       "principal": null,
       "resource": {
         "type": "Photo",
@@ -84,7 +84,7 @@
       "context": {
         "authenticated": false
       },
-      "enable_request_validation": false,
+      "validateRequest": false,
       "decision": "Deny",
       "reasons": [
         "policy1"
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "desc": "giuseppe should be able to read any file",
+      "description": "giuseppe should be able to read any file",
       "principal": {
         "type": "User",
         "id": "giuseppe"
@@ -117,7 +117,7 @@
       "errors": []
     },
     {
-      "desc": "giuseppe should be able to read an unspecified file",
+      "description": "giuseppe should be able to read an unspecified file",
       "principal": {
         "type": "User",
         "id": "giuseppe"
@@ -130,7 +130,7 @@
       "context": {
         "authenticated": true
       },
-      "enable_request_validation": false,
+      "validateRequest": false,
       "decision": "Allow",
       "reasons": [
         "policy2"

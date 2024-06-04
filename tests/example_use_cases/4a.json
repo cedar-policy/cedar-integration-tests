@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_4a.cedar",
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema.cedarschema",
- "should_validate": true,
+ "shouldValidate": true,
  "queries": [
   {
-   "desc": "alice should be able to view the photo",
+   "description": "alice should be able to view the photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -28,7 +28,7 @@
    "errors": []
   },
   {
-   "desc": "ahmad should not be allowed to view the photo",
+   "description": "ahmad should not be allowed to view the photo",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -49,7 +49,7 @@
    "errors": []
   },
   {
-   "desc": "stacey should not be allowed to view the photo",
+   "description": "stacey should not be allowed to view the photo",
    "principal": {
     "type": "User",
     "id": "stacey"

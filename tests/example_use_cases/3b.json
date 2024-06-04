@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_3b.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
- "should_validate": true,
+ "shouldValidate": true,
  "queries": [
   {
-   "desc": "alice should be able to view a photo in jane's account",
+   "description": "alice should be able to view a photo in jane's account",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -30,7 +30,7 @@
    "errors": []
   },
   {
-   "desc": "alice should be able to list photos in an album in jane's account",
+   "description": "alice should be able to list photos in an album in jane's account",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -55,7 +55,7 @@
    "errors": []
   },
   {
-   "desc": "alice should be able to list albums in jane's account",
+   "description": "alice should be able to list albums in jane's account",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -80,7 +80,7 @@
    "errors": []
   },
   {
-   "desc": "alice should not be able to view a photo in bob's account",
+   "description": "alice should not be able to view a photo in bob's account",
    "principal": {
     "type": "User",
     "id": "alice"

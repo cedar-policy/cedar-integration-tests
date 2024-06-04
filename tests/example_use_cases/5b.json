@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_5b.cedar",
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema.cedarschema",
- "should_validate": true,
+ "shouldValidate": true,
  "queries": [
   {
-   "desc": "ahmad should be able upload a 1MB PNG",
+   "description": "ahmad should be able upload a 1MB PNG",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -32,7 +32,7 @@
    "errors": []
   },
   {
-   "desc": "ahmad should not be able to upload a 2MB PNG",
+   "description": "ahmad should not be able to upload a 2MB PNG",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -57,7 +57,7 @@
    "errors": []
   },
   {
-   "desc": "ahmad should not be able to upload a 1MB GIF",
+   "description": "ahmad should not be able to upload a 1MB GIF",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -82,7 +82,7 @@
    "errors": []
   },
   {
-   "desc": "ahmad should not be able to upload an 80MB RAW",
+   "description": "ahmad should not be able to upload an 80MB RAW",
    "principal": {
     "type": "User",
     "id": "ahmad"
@@ -107,7 +107,7 @@
    "errors": []
   },
   {
-   "desc": "giuseppe should be able upload a 1MB PNG",
+   "description": "giuseppe should be able upload a 1MB PNG",
    "principal": {
     "type": "User",
     "id": "giuseppe"
@@ -134,7 +134,7 @@
    "errors": []
   },
   {
-   "desc": "giuseppe should not be able to upload a 2MB PNG",
+   "description": "giuseppe should not be able to upload a 2MB PNG",
    "principal": {
     "type": "User",
     "id": "giuseppe"
@@ -159,7 +159,7 @@
    "errors": []
   },
   {
-   "desc": "giuseppe should not be able to upload a 1MB GIF",
+   "description": "giuseppe should not be able to upload a 1MB GIF",
    "principal": {
     "type": "User",
     "id": "giuseppe"
@@ -184,7 +184,7 @@
    "errors": []
   },
   {
-   "desc": "giuseppe should be able to upload an 80MB RAW",
+   "description": "giuseppe should be able to upload an 80MB RAW",
    "principal": {
     "type": "User",
     "id": "giuseppe"

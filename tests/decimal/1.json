@@ -2,10 +2,10 @@
  "policies": "tests/decimal/policies_1.cedar",
  "entities": "sample-data/sandbox_b/entities.json",
  "schema": "sample-data/sandbox_b/schema_exts.cedarschema",
- "should_validate": true,
+ "shouldValidate": true,
  "queries": [
   {
-   "desc": "alice should be able to view the photo given a confidence score of 0.8",
+   "description": "alice should be able to view the photo given a confidence score of 0.8",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -35,7 +35,7 @@
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to view the photo when given a confidence score of 0.2345",
+   "description": "alice should not be allowed to view the photo when given a confidence score of 0.2345",
    "principal": {
     "type": "User",
     "id": "alice"

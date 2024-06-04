@@ -2,10 +2,10 @@
  "policies": "tests/example_use_cases/policies_1a.cedar",
  "entities": "sample-data/sandbox_a/entities.json",
  "schema": "sample-data/sandbox_a/schema.cedarschema",
- "should_validate": true,
+ "shouldValidate": true,
  "queries": [
   {
-   "desc": "alice should be able to view the photo",
+   "description": "alice should be able to view the photo",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -30,7 +30,7 @@
    "errors": []
   },
   {
-   "desc": "bob should not be allowed to view the photo (wrong Principal)",
+   "description": "bob should not be allowed to view the photo (wrong Principal)",
    "principal": {
     "type": "User",
     "id": "bob"
@@ -53,7 +53,7 @@
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to delete the photo (wrong Action)",
+   "description": "alice should not be allowed to delete the photo (wrong Action)",
    "principal": {
     "type": "User",
     "id": "alice"
@@ -76,7 +76,7 @@
    "errors": []
   },
   {
-   "desc": "alice should not be allowed to view an unrelated photo (wrong Resource)",
+   "description": "alice should not be allowed to view an unrelated photo (wrong Resource)",
    "principal": {
     "type": "User",
     "id": "alice"
