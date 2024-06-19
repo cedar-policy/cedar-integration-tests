@@ -28,72 +28,6 @@
       "errors": []
     },
     {
-      "description": "an unspecified user should not be able to view photos in alice_vacation",
-      "principal": null,
-      "resource": {
-        "type": "Photo",
-        "id": "vacation.jpg"
-      },
-      "action": {
-        "type": "Action",
-        "id": "view"
-      },
-      "context": {
-        "authenticated": true
-      },
-      "validateRequest": false,
-      "decision": "deny",
-      "reason": [],
-      "errors": [
-        "policy0",
-        "policy2"
-      ]
-    },
-    {
-      "description": "a request with unspecified entities should be implicitly denied",
-      "principal": {
-        "type": "User",
-        "id": "alice"
-      },
-      "resource": {
-        "type": "Photo",
-        "id": "photo_2.jpg"
-      },
-      "action": {
-        "type": "Action",
-        "id": "comment"
-      },
-      "context": {
-        "authenticated": true
-      },
-      "decision": "deny",
-      "reason": [],
-      "errors": []
-    },
-    {
-      "description": "a request with unspecified entities and an unauthenticated context should be denied with a reason",
-      "principal": null,
-      "resource": {
-        "type": "Photo",
-        "id": "photo_2.jpg"
-      },
-      "action": {
-        "type": "Action",
-        "id": "view"
-      },
-      "context": {
-        "authenticated": false
-      },
-      "validateRequest": false,
-      "decision": "deny",
-      "reason": [
-        "policy1"
-      ],
-      "errors": [
-        "policy2"
-      ]
-    },
-    {
       "description": "giuseppe should be able to read any file",
       "principal": {
         "type": "User",
@@ -110,27 +44,6 @@
       "context": {
         "authenticated": true
       },
-      "decision": "allow",
-      "reason": [
-        "policy2"
-      ],
-      "errors": []
-    },
-    {
-      "description": "giuseppe should be able to read an unspecified file",
-      "principal": {
-        "type": "User",
-        "id": "giuseppe"
-      },
-      "resource": null,
-      "action": {
-        "type": "Action",
-        "id": "view"
-      },
-      "context": {
-        "authenticated": true
-      },
-      "validateRequest": false,
       "decision": "allow",
       "reason": [
         "policy2"
