@@ -45,10 +45,12 @@ jobs:
           path: old-corpus
       - name: Checkout cedar-integration-tests
         uses: actions/checkout@v4
+        with:
+          path: cedar-integration-tests
       - uses: lhotari/action-upterm@v1
       - name: Install dependencies
         run: pip3 install -r scripts/requirements.txt
       - name: Print corpus statistics
         run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz
       - name: Compare current corpus against previous corpus
-        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz --original corpus-tests-old.tar.gz
+        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz --original ../old-corpus/corpus-tests.tar.gz
