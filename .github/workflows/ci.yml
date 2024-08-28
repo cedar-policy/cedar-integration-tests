@@ -46,6 +46,7 @@ jobs:
         run: mv corpus-tests.tar.gz corpus-tests-old.tar.gz
       - name: Checkout cedar-integration-tests
         uses: actions/checkout@v4
+      - uses: lhotari/action-upterm@v1
       - name: Install dependencies
         run: pip3 install -r scripts/requirements.txt
       - name: Print corpus statistics
