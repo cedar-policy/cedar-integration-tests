@@ -43,8 +43,6 @@ jobs:
           sparse-checkout-cone-mode: false
           ref: ${{ needs.get-branch-name.outputs.branch_name }}
           path: old-corpus
-      - name: Rename previous corpus
-        run: mv corpus-tests.tar.gz corpus-tests-old.tar.gz
       - name: Checkout cedar-integration-tests
         uses: actions/checkout@v4
       - uses: lhotari/action-upterm@v1
