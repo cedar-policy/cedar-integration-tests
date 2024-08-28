@@ -90,7 +90,7 @@ class Report():
         """
         table = self._make_table()
         print() # newline
-        print(tabulate(table, tablefmt='github'))
+        print(tabulate(table, ["", ""], tablefmt='github'))
         print() # newline
 
     def compare(self, other):
@@ -243,7 +243,12 @@ def main(arguments):
         print("Generating report")
         report_new = Report("corpus-tests-new")
         report_original = Report("corpus-tests")
-        report_original.compare(report_new) 
+        report_original.compare(report_new)
+
+    # get rid of extracted files
+    shutil.rmtree("corpus-tests")
+    if args.original:
+        shutil.rmtree("corpus-tests-new")
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))

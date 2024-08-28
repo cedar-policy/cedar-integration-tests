@@ -42,7 +42,16 @@ The corpus tests are generated over a 6 hour run of the [`abac` target](https://
 
 ## What do the auto-generated tests look like?
 
-The `scripts/` folder includes a script for inspecting the auto-generated corpus tests. This script is run as part of CI, and you can find the results in the run details.
+The `scripts/` folder includes a script for inspecting the auto-generated corpus tests. It can be used to print statistics about a single corpus, or to compare two corpuses:
+
+```shell
+# get a summary for corpus-tests.tar.gz
+python3 scripts/get_corpus_stats.py corpus-tests.tar.gz
+# compare corpus-tests.tar.gz against a previous corpus corpus-tests-old.tar.gz
+python3 scripts/get_corpus_stats.py corpus-tests.tar.gz --original corpus-tests-old.tar.gz
+```
+
+This script is run as part of CI. You can find the output in the GitHub Actions tab under the "Print corpus statistics" job.
 
 ## Security
 

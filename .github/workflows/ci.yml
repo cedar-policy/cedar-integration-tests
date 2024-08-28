@@ -32,13 +32,17 @@ jobs:
       cedar_spec_ref: ${{ needs.get-branch-name.outputs.branch_name }}
   
   inspect-corpus:
-    name: Print out corpus statistics
+    name: Print corpus statistics
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        working-directory: ./scripts
-        run: pip3 install -r requirements.txt
-      - name: Generate table
-        working-directory: ./scripts
-        run: python3 get_corpus_stats.py ../corpus-tests.tar.gz
+        run: pip3 install -r scripts/requirements.txt
+      - name: Print statistics for `corpus-tests.tar.gz`
+        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz
+      - name: Get previous corpus
+        run: |
+             cp corpus-tests.tar.gz corpus-tests-new.tar.gz
+             git checkout ${{ needs.get-branch-name.outputs.branch_name }} -- corpus-tests.tar.gz
+      - name: Compare `corpus-tests.tar.gz` against previous corpus
+        run: python3 scripts/get_corpus_stats.py corpus-tests-new.tar.gz --original corpus-tests.tar.gz
