@@ -42,6 +42,7 @@ jobs:
           sparse-checkout: corpus-tests.tar.gz
           sparse-checkout-cone-mode: false
           ref: ${{ needs.get-branch-name.outputs.branch_name }}
+          path: old-corpus
       - name: Rename previous corpus
         run: mv corpus-tests.tar.gz corpus-tests-old.tar.gz
       - name: Checkout cedar-integration-tests
