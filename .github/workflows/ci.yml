@@ -33,6 +33,7 @@ jobs:
   
   inspect-corpus:
     name: Print corpus statistics
+    needs: get-branch-name
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
