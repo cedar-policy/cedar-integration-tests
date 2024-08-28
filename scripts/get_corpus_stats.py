@@ -100,16 +100,16 @@ class Report():
         original_table = self._make_table()
         new_table = other._make_table()
         difference_table = [
-            self.count - other.count,
-            self.unique_policies - other.unique_policies,
-            self.unique_schemas - other.unique_schemas,
-            self.unique_entities - other.unique_entities,
+            other.count - self.count,
+            other.unique_policies - self.unique_policies,
+            other.unique_schemas - self.unique_schemas,
+            other.unique_entities - self.unique_entities,
             "n/a",
             "n/a",
             "n/a",
-            self.trivial_policies - other.trivial_policies,
-            self.rbac_policies - other.rbac_policies,
-            self.abac_policies - other.abac_policies
+            other.trivial_policies - self.trivial_policies,
+            other.rbac_policies - self.rbac_policies,
+            other.abac_policies - self.abac_policies
         ]
         headers = ["", "Original", "New", "Difference"]
         combined_table = [row + [new_table[i][1], difference_table[i]] for i, row in enumerate(original_table)]
