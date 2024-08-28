@@ -47,6 +47,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: corpus-tests.tar.gz
+          sparse-checkout-cone-mode: false
           ref: ${{ needs.get-branch-name.outputs.branch_name }}
       - name: Compare current corpus against previous corpus
         run: python3 scripts/get_corpus_stats.py corpus-tests-new.tar.gz --original corpus-tests.tar.gz
