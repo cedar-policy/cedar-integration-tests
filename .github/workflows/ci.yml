@@ -36,5 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - working-directory: ./scripts
+      - name: Install dependencies
+        working-directory: ./scripts
+        run: pip3 install -r requirements.txt
+      - name: Generate table
+        working-directory: ./scripts
         run: python3 get_corpus_stats.py ../corpus-tests.tar.gz
