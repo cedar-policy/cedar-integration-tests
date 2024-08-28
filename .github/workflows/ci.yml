@@ -36,18 +36,19 @@ jobs:
     needs: get-branch-name
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: pip3 install -r scripts/requirements.txt
-      - name: Print corpus statistics
-        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz
-      - name: Rename current corpus
-        run: mv corpus-tests.tar.gz corpus-tests-new.tar.gz
-      - name: Get previous corpus
+      - name: Download previous corpus
         uses: actions/checkout@v4
         with:
           sparse-checkout: corpus-tests.tar.gz
           sparse-checkout-cone-mode: false
           ref: ${{ needs.get-branch-name.outputs.branch_name }}
+      - name: Rename previous corpus
+        run: mv corpus-tests.tar.gz corpus-tests-old.tar.gz
+      - name: Checkout cedar-integration-tests
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: pip3 install -r scripts/requirements.txt
+      - name: Print corpus statistics
+        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz
       - name: Compare current corpus against previous corpus
-        run: python3 scripts/get_corpus_stats.py corpus-tests-new.tar.gz --original corpus-tests.tar.gz
+        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz --original corpus-tests-old.tar.gz
