@@ -4,14 +4,55 @@ on:
   pull_request:
 
 jobs:
+  get-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch name
+        shell: bash
+        # The workflow is triggered by pull_request so we use `GITHUB_BASE_REF`
+        run: echo "branch_name=${GITHUB_BASE_REF}" >> $GITHUB_OUTPUT
+        id: get_branch_name
+    outputs:
+      branch_name: ${{ steps.get_branch_name.outputs.branch_name }}
+
   test-cedar-policy:
     name: Test Rust implementation
+    needs: get-branch-name
     uses: cedar-policy/cedar/.github/workflows/run_integration_tests_reusable.yml@main
     with:
       cedar_integration_tests_ref: ${{ github.ref }}
+      cedar_policy_ref: ${{ needs.get-branch-name.outputs.branch_name }}
 
   test-cedar-spec:
     name: Test Lean implementation
+    needs: get-branch-name
     uses: cedar-policy/cedar-spec/.github/workflows/run_integration_tests_reusable.yml@main
     with:
       cedar_integration_tests_ref: ${{ github.ref }}
+      cedar_spec_ref: ${{ needs.get-branch-name.outputs.branch_name }}
+  
+  inspect-corpus:
+    name: Print corpus statistics
+    needs: get-branch-name
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download previous corpus
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: corpus-tests.tar.gz
+          sparse-checkout-cone-mode: false
+          ref: ${{ needs.get-branch-name.outputs.branch_name }}
+          path: old-corpus
+      - name: Checkout cedar-integration-tests
+        uses: actions/checkout@v4
+        with:
+          path: cedar-integration-tests
+      - name: Install dependencies
+        working-directory: cedar-integration-tests/scripts
+        run: pip3 install -r requirements.txt
+      - name: Print corpus statistics
+        working-directory: cedar-integration-tests
+        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz
+      - name: Compare current corpus against previous corpus
+        working-directory: cedar-integration-tests
+        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz --original ../old-corpus/corpus-tests.tar.gz
