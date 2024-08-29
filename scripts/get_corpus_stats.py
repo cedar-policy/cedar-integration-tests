@@ -186,8 +186,8 @@ class Report():
         """
         Returns a tuple (trivial, rbac, abac) where:
             - trivial = number of policies that use a trivial scope and condition
-            - rbac = number of policies that use a trivial condition
-            - abac = number of policies that use a trivial scope
+            - rbac = number of policies that use a trivial condition (but not a trivial scope)
+            - abac = number of policies that use a trivial scope (but not a trivial condition)
         
         Uses simple string matching, which may break in the future if the
         policy formatter changes.
