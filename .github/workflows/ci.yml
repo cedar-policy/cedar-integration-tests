@@ -30,6 +30,7 @@ jobs:
     with:
       cedar_integration_tests_ref: ${{ github.ref }}
       cedar_spec_ref: ${{ needs.get-branch-name.outputs.branch_name }}
+      cedar_policy_ref: ${{ needs.get-branch-name.outputs.branch_name }}
   
   inspect-corpus:
     name: Print corpus statistics
