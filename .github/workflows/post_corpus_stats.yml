@@ -1,0 +1,57 @@
+name: Post corpus statistics on a pull request
+permissions:
+  contents: read
+  pull-requests: write
+  actions: read
+  statuses: read
+on:
+  # Note: Workflows triggered via pull_request_target have write permission to the
+  # target repository and access to target repository secrets.
+  # Therefore, any changes to this workflow must not run untrusted code.
+  pull_request_target:
+    paths:
+      - "corpus-tests.tar.gz"
+
+jobs:
+  post_stats:
+    name: Post corpus statistics
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the latest commit for the BASE branch
+        uses: actions/checkout@v4
+        with:
+          path: cedar-integration-tests
+          ref: ${{ github.event.pull_request.base.sha }}
+      - name: Download the corpus for the HEAD
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: corpus-tests.tar.gz
+          sparse-checkout-cone-mode: false
+          path: new-corpus
+          # NOTE: Do NOT run code from the head in this workflow
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip"
+      - name: Configure the virtual environment
+        working-directory: cedar-integration-tests
+        shell: bash
+        run: |
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r ./scripts/requirements.txt
+      - name: Compute corpus statistics
+        working-directory: cedar-integration-tests
+        shell: bash
+        run: |
+          . venv/bin/activate
+          python3 ./scripts/get_corpus_stats.py ../new-corpus/corpus-tests.tar.gz --original corpus-tests.tar.gz --report-file comment.md
+      - name: Post comment
+        working-directory: cedar-integration-tests
+        shell: bash
+        run: gh pr comment $PR_NUMBER --body-file comment.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}

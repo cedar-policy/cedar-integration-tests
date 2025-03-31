@@ -30,29 +30,3 @@ jobs:
     with:
       cedar_integration_tests_ref: ${{ github.ref }}
       cedar_spec_ref: ${{ needs.get-branch-name.outputs.branch_name }}
-  
-  inspect-corpus:
-    name: Print corpus statistics
-    needs: get-branch-name
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download previous corpus
-        uses: actions/checkout@v4
-        with:
-          sparse-checkout: corpus-tests.tar.gz
-          sparse-checkout-cone-mode: false
-          ref: ${{ needs.get-branch-name.outputs.branch_name }}
-          path: old-corpus
-      - name: Checkout cedar-integration-tests
-        uses: actions/checkout@v4
-        with:
-          path: cedar-integration-tests
-      - name: Install dependencies
-        working-directory: cedar-integration-tests/scripts
-        run: pip3 install -r requirements.txt
-      - name: Print corpus statistics
-        working-directory: cedar-integration-tests
-        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz
-      - name: Compare current corpus against previous corpus
-        working-directory: cedar-integration-tests
-        run: python3 scripts/get_corpus_stats.py corpus-tests.tar.gz --original ../old-corpus/corpus-tests.tar.gz

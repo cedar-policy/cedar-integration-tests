@@ -14,6 +14,7 @@ import argparse
 import fnmatch
 import hashlib
 import json
+import pathlib
 import numpy
 import os
 import shutil
@@ -84,16 +85,16 @@ class Report():
             ["Pure ABAC (non-trivial) policies", self._fmt_percentage(self.abac_policies)]
         ]
 
-    def pretty_print(self):
+    def pretty_print(self, file=None):
         """
         Pretty prints the report as a markdown table.
         """
         table = self._make_table()
-        print() # newline
-        print(tabulate(table, ["", ""], tablefmt='github'))
-        print() # newline
+        report = tabulate(table, ["", ""], tablefmt='github')
+        print(f'\n{report}\n')
+        Report.write_report(report, file)
 
-    def compare(self, other):
+    def compare(self, other, file=None):
         """
         Compares two reports and prints the result as a markdown table.
         """
@@ -113,9 +114,10 @@ class Report():
         ]
         headers = ["", "Original", "New", "Difference"]
         combined_table = [row + [new_table[i][1], difference_table[i]] for i, row in enumerate(original_table)]
-        print() # newline
-        print(tabulate(combined_table, headers, tablefmt='github'))
-        print() # newline
+        report = tabulate(combined_table, headers, tablefmt='github')
+        print(f'\n{report}\n')
+        Report.write_report(report, file)
+
 
     def _get_num_unique(self, files):
         """
@@ -210,11 +212,25 @@ class Report():
                 abac += 1
         return (trivial, rbac, abac)
 
+    @staticmethod
+    def write_report(report, file):
+        if file is not None:
+            # Ensure the parent directory for the file exists
+            os.makedirs(pathlib.Path(file).parent, exist_ok=True)
+            with open(file, "w") as f:
+                header = "# Corpus Statistics\n\n"
+                f.write(header + report)
+                
 def main(arguments):
 
     parser = argparse.ArgumentParser()
     parser.add_argument('corpus', help="Corpus to analyze")
     parser.add_argument('-o', '--original', help="Original corpus for comparison")
+    parser.add_argument(
+        "-r", "--report-file",
+        help="The path of the file to which a final report in GitHub flavored Markdown should be written",
+        required=False,
+    )
 
     args = parser.parse_args(arguments)
 
@@ -227,7 +243,7 @@ def main(arguments):
     if args.original is None:
         print("Generating report")
         report = Report("corpus-tests")
-        report.pretty_print()
+        report.pretty_print(file=args.report_file)
     else:
         # move the extracted corpus to a new location
         shutil.move("corpus-tests", "corpus-tests-new")
@@ -243,7 +259,7 @@ def main(arguments):
         print("Generating report")
         report_new = Report("corpus-tests-new")
         report_original = Report("corpus-tests")
-        report_original.compare(report_new)
+        report_original.compare(report_new, file=args.report_file)
 
     # get rid of extracted files
     shutil.rmtree("corpus-tests")
