@@ -94,7 +94,6 @@ class Report():
         print(f'\n{report}\n')
         Report.write_report(report, file)
 
-
     def compare(self, other, file=None):
         """
         Compares two reports and prints the result as a markdown table.
@@ -216,7 +215,7 @@ class Report():
     @staticmethod
     def write_report(report, file):
         if file is not None:
-            # Ensure the parent directory for the report exists
+            # Ensure the parent directory for the file exists
             os.makedirs(pathlib.Path(file).parent, exist_ok=True)
             with open(file, "w") as f:
                 header = "# Corpus Statistics\n\n"
