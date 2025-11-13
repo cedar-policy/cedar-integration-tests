@@ -1,2 +1,5 @@
 # Python virtual environment
 /venv/
+
+# Location for unpacked corpus tests
+corpus-tests
