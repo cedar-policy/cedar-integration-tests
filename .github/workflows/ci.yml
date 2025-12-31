@@ -3,6 +3,8 @@ name: Run Integration Tests
 on:
   pull_request:
 
+permissions: read-all
+
 jobs:
   get-branch-name:
     runs-on: ubuntu-latest
