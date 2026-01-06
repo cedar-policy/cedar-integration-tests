@@ -18,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit for the BASE branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: cedar-integration-tests
           ref: ${{ github.event.pull_request.base.sha }}
       - name: Download the corpus for the HEAD
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           sparse-checkout: corpus-tests.tar.gz
           sparse-checkout-cone-mode: false
@@ -31,7 +31,7 @@ jobs:
           # NOTE: Do NOT run code from the head in this workflow
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: "3.9"
           cache: "pip"
