@@ -236,8 +236,7 @@ def main(arguments):
 
     print("Extracting", args.corpus)
     tar = tarfile.open(args.corpus, "r:gz")
-    tar.extraction_filter = (lambda member, path: member)
-    tar.extractall()
+    tar.extractall(filter = 'data')
     tar.close()
 
     if args.original is None:
@@ -251,8 +250,7 @@ def main(arguments):
         # extract the other corpus
         print("Extracting", args.original)
         tar = tarfile.open(args.original, "r:gz")
-        tar.extraction_filter = (lambda member, path: member)
-        tar.extractall()
+        tar.extractall(filter = 'data')
         tar.close()
 
         # generate report

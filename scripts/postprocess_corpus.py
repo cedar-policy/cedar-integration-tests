@@ -14,7 +14,7 @@ def process_corpus_tests(input_tar, output_tar):
     with tempfile.TemporaryDirectory() as temp_dir:
         # Extract original tar
         with tarfile.open(input_tar, 'r:gz') as tar:
-            tar.extractall(temp_dir)
+            tar.extractall(temp_dir, filter = 'data')
         
         corpus_dir = os.path.join(temp_dir, 'corpus-tests')
         files_to_remove = set()
