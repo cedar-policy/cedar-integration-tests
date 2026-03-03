@@ -5,11 +5,11 @@ import os
 import tempfile
 
 def has_offset_extension(content):
-    """Check if content contains offset extension usage in entity data"""
+    """Check if content contains offset extension usage in entity or request data"""
     return '"fn": "offset"' in content
 
 def process_corpus_tests(input_tar, output_tar):
-    """Remove tests that use offset extension in entity data from corpus-tests.tar.gz"""
+    """Remove tests that use offset extension in entity or request data from corpus-tests.tar.gz"""
     
     with tempfile.TemporaryDirectory() as temp_dir:
         # Extract original tar
@@ -26,13 +26,16 @@ def process_corpus_tests(input_tar, output_tar):
                 
                 should_remove = False
                 
-                # Parse JSON to check entities file only
+                # Parse JSON to check entity and request data
                 try:
                     with open(json_path, 'r') as f:
-                        test_data = json.loads(f.read())
-                    
-                    if isinstance(test_data, dict):
-                        # Check entities file only
+                        test_data_content = f.read()
+                        test_data = json.loads(test_data_content)
+                    # Check the requests in the test file
+                    if has_offset_extension(test_data_content):
+                        should_remove = True
+                    elif isinstance(test_data, dict):
+                        # Check the entities file
                         entities_file = test_data.get('entities', '').replace('corpus-tests/', '')
                         if entities_file:
                             entities_path = os.path.join(corpus_dir, entities_file)
@@ -68,4 +71,4 @@ def process_corpus_tests(input_tar, output_tar):
 
 if __name__ == '__main__':
     process_corpus_tests('corpus-tests.tar.gz', 'corpus-tests-filtered.tar.gz')
-    print("Created corpus-tests-filtered.tar.gz without offset in entity data")
+    print("Created corpus-tests-filtered.tar.gz without offset in entity or request data")
