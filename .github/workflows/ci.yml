@@ -6,6 +6,13 @@ on:
 permissions: read-all
 
 jobs:
+  check-corpus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check corpus for offset extension
+        run: python3 scripts/postprocess_corpus.py --check
+
   get-branch-name:
     runs-on: ubuntu-latest
     steps:
