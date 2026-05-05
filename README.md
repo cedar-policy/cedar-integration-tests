@@ -14,9 +14,11 @@ This repository contains integration tests for the Cedar policy language. It is 
 
 An integration test is a JSON file with the following fields:
 
-* `policies`: The name of the Cedar policy file (`*.cedar`)
+* `policies`: The name of the policy file
+* `policyFormat`: Format of the policy file: `cedar` (default) or `json`. If absent, defaults to `cedar`.
 * `entities`: The name of the entities file (`*.entities.json`)
-* `schema`: The name of the Cedar schema file (`*.cedarschema`)
+* `schema`: The name of the schema file
+* `schemaFormat`: Format of the schema file: `cedar` (default) or `json`. If absent, defaults to `cedar`.
 * `shouldValidate`: Whether the policy validate using the schema (true/false)
 * `requests`: Sequence of authorization requests and expected results (see below)
 
