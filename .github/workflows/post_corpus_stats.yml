@@ -18,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit for the BASE branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           path: cedar-integration-tests
           ref: ${{ github.event.pull_request.base.sha }}
       - name: Download the corpus for the HEAD
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           sparse-checkout: corpus-tests.tar.gz
           sparse-checkout-cone-mode: false
