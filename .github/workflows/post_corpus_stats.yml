@@ -29,6 +29,7 @@ jobs:
           sparse-checkout-cone-mode: false
           path: new-corpus
           # NOTE: Do NOT run code from the head in this workflow
+          allow-unsafe-pr-checkout: true
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup Python
         uses: actions/setup-python@v6
